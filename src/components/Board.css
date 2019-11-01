@@ -1,0 +1,20 @@
+.board {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+.board .score-board {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board .game-board {
+  width: 700px;
+  flex: 1;
+}
