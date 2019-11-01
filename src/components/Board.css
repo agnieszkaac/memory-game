@@ -4,6 +4,7 @@
   justify-content: center;
   flex-flow: column;
   align-items: center;
+  font-family: sans-serif;
 }
 
 .board .score-board {
@@ -14,7 +15,24 @@
   align-items: center;
 }
 
+.board .restart-button {
+  border: none;
+  background-color: #09d3ac;
+  padding: 10px 15px;
+  margin: 5px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
 .board .game-board {
   width: 700px;
   flex: 1;
+}
+
+.board .won-message {
+  position: absolute;
+  color: red;
+  font-size: 60px;
+  font-weight: 900;
 }

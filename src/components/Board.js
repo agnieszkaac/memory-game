@@ -76,7 +76,9 @@ export class Board extends React.PureComponent {
       <div className="board">
         <div className="score-board">
           <span>Found pairs: {this.state.found}</span>
-          <button onClick={this.restart}>Restart</button>
+          <button className="restart-button" onClick={this.restart}>
+            Restart
+          </button>
         </div>
         <div className="game-board">
           {this.state.images.map(image => (
@@ -92,7 +94,9 @@ export class Board extends React.PureComponent {
             />
           ))}
         </div>
-        {this.state.found === images.length && <span>YOU WON!</span>}
+        {this.state.found === images.length && (
+          <div className="won-message">YOU WON!</div>
+        )}
       </div>
     );
   }

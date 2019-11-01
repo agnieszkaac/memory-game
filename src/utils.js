@@ -10,7 +10,7 @@ import dog8 from "./assets/dog-8.jpeg";
 export const ImageState = {
   Closed: "closed",
   Opened: "opened",
-  Matched: "matched",
+  Matched: "matched"
 };
 
 export const images = [
@@ -71,6 +71,3 @@ export const randomiseImages = images => {
   });
   return newArray;
 };
-
-
-
