@@ -7,38 +7,52 @@ import dog6 from "./assets/dog-6.jpg";
 import dog7 from "./assets/dog-7.jpg";
 import dog8 from "./assets/dog-8.jpeg";
 
+export const ImageState = {
+  Closed: "closed",
+  Opened: "opened",
+  Matched: "matched",
+};
+
 export const images = [
   {
     id: 1,
-    src: dog1
+    src: dog1,
+    state: ImageState.Closed
   },
   {
     id: 2,
-    src: dog2
+    src: dog2,
+    state: ImageState.Closed
   },
   {
     id: 3,
-    src: dog3
+    src: dog3,
+    state: ImageState.Closed
   },
   {
     id: 4,
-    src: dog4
+    src: dog4,
+    state: ImageState.Closed
   },
   {
     id: 5,
-    src: dog5
+    src: dog5,
+    state: ImageState.Closed
   },
   {
     id: 6,
-    src: dog6
+    src: dog6,
+    state: ImageState.Closed
   },
   {
     id: 7,
-    src: dog7
+    src: dog7,
+    state: ImageState.Closed
   },
   {
     id: 8,
-    src: dog8
+    src: dog8,
+    state: ImageState.Closed
   }
 ];
 
@@ -57,3 +71,6 @@ export const randomiseImages = images => {
   });
   return newArray;
 };
+
+
+
