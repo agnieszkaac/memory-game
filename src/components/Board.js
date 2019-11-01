@@ -11,16 +11,15 @@ export class Board extends React.PureComponent {
       images: randomiseImages(images),
       openedImages: [],
       scoredImages: [],
-      toHide: [],
       isWinner: false
     };
   }
 
   onImageClick = image => {
     const openedImages = [...this.state.openedImages];
-    if (openedImages.find(i => i.id === image.id)) {
-      this.addToScored(image);
+    if (openedImages.find(i => i.id === image.id) && openedImages.length < 2) {
       this.cleanOpened([...openedImages, image]);
+      this.addToScored(image);
     } else {
       this.addToOpened(image);
     }
@@ -42,20 +41,11 @@ export class Board extends React.PureComponent {
   };
 
   addToOpened = image => {
-    this.setState(
-      prevState => ({
-        openedImages: [...prevState.openedImages, image]
-      }),
-      () => this.shouldHide(this.state.openedImages)
-    );
-  };
-
-  shouldHide = openedItems => {
-    if (openedItems.length > 1) {
-      setTimeout(() => {
-        this.cleanOpened(openedItems);
-      }, 1500);
-    }
+    this.setState(prevState => {
+      const openedImages =
+        prevState.openedImages.length === 2 ? [] : prevState.openedImages;
+      return { openedImages: [...openedImages, image] };
+    });
   };
 
   cleanOpened = images => {
