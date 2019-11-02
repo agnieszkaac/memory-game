@@ -4,16 +4,16 @@ import { Image } from "./Image";
 import { images, ImageState, randomiseImages } from "../utils";
 import "./Board.css";
 
-const INITIAL_STATE = {
-  images: randomiseImages(images),
-  found: 0
-};
-
 export class Board extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = INITIAL_STATE;
+    this.state = this.getInitialState();
   }
+
+  getInitialState = () => ({
+    images: randomiseImages(images),
+    found: 0
+  });
 
   onClick = image => {
     const opened = this.findOpened();
@@ -68,19 +68,23 @@ export class Board extends React.PureComponent {
   };
 
   restart = () => {
-    this.setState(INITIAL_STATE);
+    this.setState(this.getInitialState());
   };
 
   render() {
+    const won = this.state.found === images.length;
     return (
       <div className="board">
         <div className="score-board">
-          <span>Found pairs: {this.state.found}</span>
+          <div className="score">
+            <span className="points">{this.state.found}</span>
+            <span>Score</span>
+          </div>
           <button className="restart-button" onClick={this.restart}>
             Restart
           </button>
         </div>
-        <div className="game-board">
+        <div className={`game-board ${won && "won"}`}>
           {this.state.images.map(image => (
             <Image
               key={image.index}
@@ -94,9 +98,7 @@ export class Board extends React.PureComponent {
             />
           ))}
         </div>
-        {this.state.found === images.length && (
-          <div className="won-message">YOU WON!</div>
-        )}
+        {won && <div className="won-message">YOU WON!</div>}
       </div>
     );
   }
