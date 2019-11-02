@@ -2,19 +2,16 @@ import React from "react";
 import PropsTypes from "prop-types";
 
 import "./Image.css";
-import question from "../assets/question-mark.png";
+import paw from "../assets/paw.png";
 
 export class Image extends React.PureComponent {
   render() {
     return this.props.isOpen ? (
       <img className="image" src={this.props.imageSrc} alt="" />
     ) : (
-      <img
-        className="image blank"
-        src={question}
-        alt=""
-        onClick={this.props.onClick}
-      />
+      <div className="image blank" onClick={this.props.onClick}>
+        <img className="" src={paw} alt="" />
+      </div>
     );
   }
 }

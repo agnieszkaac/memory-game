@@ -81,10 +81,10 @@ export class Board extends React.PureComponent {
             <span>Score</span>
           </div>
           <button className="restart-button" onClick={this.restart}>
-            Restart
+            New Game
           </button>
         </div>
-        <div className={`game-board ${won && "won"}`}>
+        <div className={`game-board ${won ? "won" : ""}`}>
           {this.state.images.map(image => (
             <Image
               key={image.index}

@@ -2,12 +2,20 @@
   height: 130px;
   width: 150px;
   margin: 5px;
+  cursor: pointer;
+  float: left;
+}
+
+img.image {
   object-fit: cover;
   object-position: 0;
-  cursor: pointer;
 }
 
 .blank {
   background-color: lavender;
-  object-fit: unset;
+  display: flex;
+}
+
+.blank img {
+  width: inherit;
 }
